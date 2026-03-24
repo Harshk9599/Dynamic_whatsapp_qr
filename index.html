@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+</head>
+<body>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const product = params.get("product");
+
+  const phone = "919667771077";
+
+  const productMessages = {
+    la24: "Hello, I want assistance for LAVNA LA-Fourty-Four Smart Door Lock",
+    le50: "Hello, I want assistance for LAVNA LE50 Smart Door Lock",
+    la8: "Hello, I want assistance for LAVNA LA8 Smart Door Lock",
+    lh300: "Hello, I want assistance for LAVNA LH300 Smart Door Lock"
+  };
+
+  let message;
+
+  if (product && productMessages[product]) {
+    message = productMessages[product];
+  } else {
+    message = "Hello, I need assistance";
+  }
+
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.location.replace(url);
+</script>
+
+</body>
+</html>
